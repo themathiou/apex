@@ -1,5 +1,14 @@
 # Apex
 
+A single project to play around with latest Angular.
+Fetches a list with F1 drivers and presents them in a list.
+Click on any driver opens a view with Driver's details.
+Sorting and filtering is also available for the list.
+
+Apex: F1 term describing the middle point of the inside line around a corner at which drivers aim their cars.
+
+
+# Angular related
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server
