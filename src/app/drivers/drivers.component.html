@@ -1,3 +1,3 @@
-<p>
-  drivers works!
-</p>
+<div *ngIf="driverStandings.length">
+  <p *ngFor='let driver of driverStandings[0].DriverStandings'>{{driver.Driver.driverId}}</p>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DriverService } from './shared/driver.service';
+import { DriverStanding } from '../shared/models/driver-standings';
 
 @Component({
   selector: 'app-drivers',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriversComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private driverService: DriverService
+  ) { }
+
+  driverStandings: object[] = [];
 
   ngOnInit() {
+    this.getStandings();
+  }
+
+  getStandings(): void {
+    this.driverService.getMRData()
+      .subscribe(res => {
+        console.log(res);
+        this.driverStandings = res.MRData.StandingsTable.StandingsLists; //TODO: FIX MODELS
+        console.log(this.driverStandings);
+      })
   }
 
 }

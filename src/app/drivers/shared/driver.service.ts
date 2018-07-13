@@ -14,15 +14,13 @@ export class DriverService {
   constructor(
     private http: HttpClient,
   ) { }
-
-  // TODO: Remove to a proper place
+  
+  
+  // TODO: Move to a proper place
   private driversUrl = `http://ergast.com/api/f1/2013/driverStandings.json`;
+  private mrdata: MRData;
 
   getMRData(): Observable<MRData> {
     return this.http.get<MRData>(this.driversUrl);
   }
-
-  // getDriverStandings(): Observable<DriverStanding[]> {
-  //   return this.http.get<DriverStanding[]>(this.driversUrl);
-  // }
 }
