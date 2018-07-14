@@ -1,7 +1,5 @@
 import { Constructor } from './constructor';
 import { Driver } from '../../drivers/shared/driver';
-
- //TODO: FIX MODEL
 export class DriverStanding {
   position: string;
   positionText: string;

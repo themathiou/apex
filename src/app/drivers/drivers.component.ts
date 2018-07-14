@@ -22,9 +22,7 @@ export class DriversComponent implements OnInit {
   getStandings(): void {
     this.driverService.getMRData()
       .subscribe(res => {
-        console.log(res);
-        this.driverStandings = res.MRData.StandingsTable.StandingsLists; //TODO: FIX MODELS
-        console.log(this.driverStandings);
+        this.driverStandings = res.MRData.StandingsTable.StandingsLists;
       })
   }
 

@@ -1,4 +1,4 @@
-import { DriverStanding } from './driver-standings';
+import { StandingsList } from './standings-list';
 
 export class MRData {
   MRData: {
@@ -10,7 +10,7 @@ export class MRData {
     total: string;
     StandingsTable: {
       season: string;
-      StandingsLists: DriverStanding[];  //TODO: FIX MODELS
+      StandingsLists: StandingsList[];
     }
   }
 }
