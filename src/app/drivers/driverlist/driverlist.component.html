@@ -1,0 +1,21 @@
+<table *ngIf="driverStandings.length">
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Driver</th>
+      <th>Constructor</th>
+      <th>Wins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr 
+      *ngFor='let driver of driverStandings'
+      (click)="onSelectDriver(driver.Driver.driverId)"
+    >
+      <td>{{driver.position}}</td>
+      <td>{{driver.Driver.driverId}}</td>
+      <td>{{driver.Constructors[0].name}}</td>
+      <td>{{driver.wins}}</td>
+    </tr>
+    <tbody>
+</table>

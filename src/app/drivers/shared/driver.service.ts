@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DriverStanding } from '../../shared/models/driver-standings';
 import { MRData } from '../../shared/models/mrdata';
+import { Driver } from './driver';
 
 
 @Injectable({
@@ -18,9 +18,12 @@ export class DriverService {
   
   // TODO: Move to a proper place
   private driversUrl = `http://ergast.com/api/f1/2013/driverStandings.json`;
-  private mrdata: MRData;
 
-  getMRData(): Observable<MRData> {
+  /**
+   * Fetches data from server
+   */
+  fetchMRData(): Observable<MRData> {
     return this.http.get<MRData>(this.driversUrl);
-  }
+  };
+
 }

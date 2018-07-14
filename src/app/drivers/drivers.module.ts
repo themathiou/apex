@@ -5,10 +5,14 @@ import { FormsModule } from '@angular/forms';
 
 import { DriversComponent } from './drivers.component';
 import { DriverService } from './shared/driver.service';
+import { DriverlistComponent } from './driverlist/driverlist.component';
+import { DriverDetailsComponent } from './driver-details/driver-details.component';
 
 @NgModule({
   declarations: [
-    DriversComponent
+    DriversComponent,
+    DriverlistComponent,
+    DriverDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +20,9 @@ import { DriverService } from './shared/driver.service';
     FormsModule
   ],
   exports: [
-    DriversComponent
+    DriversComponent,
+    DriverlistComponent,
+    DriverDetailsComponent
   ],
   providers: [
     DriverService

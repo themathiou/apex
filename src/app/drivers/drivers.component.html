@@ -1,18 +1,14 @@
-<table *ngIf="driverStandings.length">
-  <thead>
-    <tr>
-      <th>Position</th>
-      <th>Driver</th>
-      <th>Constructor</th>
-      <th>Wins</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor='let driver of driverStandings[0].DriverStandings'>
-      <td>{{driver.position}}</td>
-      <td>{{driver.Driver.driverId}}</td>
-      <td>{{driver.Constructors[0].name}}</td>
-      <td>{{driver.wins}}</td>
-    </tr>
-    <tbody>
-</table>
+<section class="details">
+  <app-driver-details [driver]="selectedDriver"></app-driver-details>
+</section>
+<section class="list">
+  <div>
+    <input type="text" placeholder="Start typing...">
+  </div>
+  <div>Driver Championship Standings 2013</div>
+  <app-driverlist
+    [standings]="driverStandings"
+    (onListSelectDriver)="onSelectDriver($event)"
+  ></app-driverlist>
+  <div>Some footer</div>
+</section>
