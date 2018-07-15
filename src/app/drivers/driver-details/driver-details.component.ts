@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Driver } from '../shared/models/driver';
+import { DriverStanding } from '../../shared/models/driver-standings';
 
 @Component({
   selector: 'app-driver-details',
   templateUrl: './driver-details.component.html',
-  styleUrls: ['./driver-details.component.css']
+  styleUrls: ['./driver-details.component.scss']
 })
 export class DriverDetailsComponent implements OnInit {
-  @Input() driver: Driver;
+  @Input() driverStanding: DriverStanding;
 
   constructor() { }
 

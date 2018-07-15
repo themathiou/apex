@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { StandingsList } from '../shared/models/standings-list';
-import { Driver } from './shared/models/driver';
 import { DriverStanding } from '../shared/models/driver-standings';
 import { DriverService } from './shared/services/driver.service';
 
@@ -29,7 +28,7 @@ export class DriversComponent implements OnInit {
    */
   preselectedDriverId: string = '';
   driverStandings: DriverStanding[] = [];
-  selectedDriver: Driver;
+  selectedDriver: DriverStanding;
   selectedSorting: string = 'POSITION';
   /** Defines if the selected sort will be Ascending(TRUE) or Descengin(False) */
   isSortDirAsc: Boolean = true;
@@ -45,7 +44,7 @@ export class DriversComponent implements OnInit {
 
   selectDriver(id: string): void {
     let tmpDriver = this.driverStandings.filter(o => 
-      o.Driver.driverId === id)[0].Driver;
+      o.Driver.driverId === id)[0];
     this.selectedDriver = tmpDriver || null;
   }
 

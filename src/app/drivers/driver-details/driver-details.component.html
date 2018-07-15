@@ -1,13 +1,16 @@
-<div *ngIf="driver">
-  <div>
+<div *ngIf="driverStanding">
+  <div class="test">
     <img src="#" />
-    <h3>{{driver.givenName}} {{driver.familyName}}</h3>
+    <h3>{{driverStanding.Driver.givenName}} {{driverStanding.Driver.familyName}}</h3>
   </div>
   <div>
-    <p>Country: {{driver.givenName}}</p>
-    <!-- TODO: <p>Team: {{constr.name}}</p> -->
-    <p>Birth: {{driver.dateOfBirth}}</p>
-    <p>Biography: {{driver.url}}</p>
-    <p>Nationality: {{driver.nationality}}</p>
+    <p>Birth: {{driverStanding.Driver.dateOfBirth}}</p>
+    <p>Biography: {{driverStanding.Driver.url}}</p>
+    <p>Nationality: {{driverStanding.Driver.nationality}}</p>
+    <hr>
+    <p>Team: {{driverStanding.Constructors[0].name}}</p>
+    <p>Nationality: {{driverStanding.Constructors[0].nationality}}</p>
+    <p>Link: {{driverStanding.Constructors[0].url}}</p>
+    
   </div>
 </div>
