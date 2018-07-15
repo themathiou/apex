@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "apex"
+  "defaultProject": "apex",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

@@ -4,7 +4,7 @@ import { DriverStanding } from '../../shared/models/driver-standings';
 @Component({
   selector: 'app-driverlist',
   templateUrl: './driverlist.component.html',
-  styleUrls: ['./driverlist.component.css']
+  styleUrls: ['./driverlist.component.scss']
 })
 
 

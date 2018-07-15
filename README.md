@@ -1,6 +1,6 @@
 # Apex
 
-A single project to play around with latest Angular.
+Experimental project to play around with latest Angular (6).
 Fetches a list with F1 drivers and presents them in a list.
 Click on any driver opens a view with Driver's details.
 Sorting and filtering is also available for the list.

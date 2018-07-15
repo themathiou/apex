@@ -1,16 +1,16 @@
-<section class="details">
-  <app-driver-details [driverStanding]="selectedDriver"></app-driver-details>
-</section>
-<section class="list">
-  <div>
-    <input type="text" [(ngModel)]="searchText" placeholder="Start typing...">
-  </div>
-  <div>Driver Championship Standings 2013</div>
-  <app-driverlist
-    [standings]="driverStandings"
-    [searchText]="searchText"
-    (onListSelectDriver)="onSelectDriver($event)"
-    (onListSelectSort)="onSelectSort($event)"
-  ></app-driverlist>
-  <div>Some footer</div>
-</section>
+<div class="drivers-container">
+  <section class="details">
+    <app-driver-details [driverStanding]="selectedDriver"></app-driver-details>
+  </section>
+  <section class="list">
+    <div class="search-wrapper">
+      <input type="text" [(ngModel)]="searchText" placeholder="Search...">
+    </div>
+    <app-driverlist
+      [standings]="driverStandings"
+      [searchText]="searchText"
+      (onListSelectDriver)="onSelectDriver($event)"
+      (onListSelectSort)="onSelectSort($event)"
+    ></app-driverlist>
+  </section>
+</div>

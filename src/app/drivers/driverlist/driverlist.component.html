@@ -1,21 +1,25 @@
-<table *ngIf="driverStandings.length">
-  <thead>
-    <tr>
-      <th (click)="onSelectSort('POSITION')">Position</th>
-      <th (click)="onSelectSort('DRIVER')">Driver</th>
-      <th (click)="onSelectSort('CONSTRUCTOR')">Constructor</th>
-      <th (click)="onSelectSort('WINS')">Wins</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr 
-      *ngFor="let driver of driverStandings | filterName : searchText"
-      (click)="onSelectDriver(driver.Driver.driverId)"
-    >
-      <td>{{driver.position}}</td>
-      <td>{{driver.Driver.familyName}}, {{driver.Driver.givenName}} </td>
-      <td>{{driver.Constructors[0].name}}</td>
-      <td>{{driver.wins}}</td>
-    </tr>
+<div class="list-wrapper">
+  <h3 class="title">Driver Championship Standings 2013</h3>
+  <table *ngIf="driverStandings.length">
+    <thead>
+      <tr>
+        <th (click)="onSelectSort('POSITION')">Position</th>
+        <th (click)="onSelectSort('DRIVER')">Driver</th>
+        <th (click)="onSelectSort('CONSTRUCTOR')">Constructor</th>
+        <th (click)="onSelectSort('WINS')">Wins</th>
+      </tr>
+    </thead>
     <tbody>
-</table>
+      <tr 
+        *ngFor="let driver of driverStandings | filterName : searchText"
+        (click)="onSelectDriver(driver.Driver.driverId)"
+      >
+        <td>{{driver.position}}</td>
+        <td>{{driver.Driver.familyName}}, {{driver.Driver.givenName}} </td>
+        <td>{{driver.Constructors[0].name}}</td>
+        <td>{{driver.wins}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table-footer"></div>
+</div>

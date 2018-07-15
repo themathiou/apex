@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { StandingsList } from '../shared/models/standings-list';
@@ -8,14 +9,15 @@ import { DriverService } from './shared/services/driver.service';
 @Component({
   selector: 'app-drivers',
   templateUrl: './drivers.component.html',
-  styleUrls: ['./drivers.component.css']
+  styleUrls: ['./drivers.component.scss']
 })
 
 export class DriversComponent implements OnInit {
 
   constructor(
     private driverService: DriverService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -45,6 +47,7 @@ export class DriversComponent implements OnInit {
   selectDriver(id: string): void {
     let tmpDriver = this.driverStandings.filter(o => 
       o.Driver.driverId === id)[0];
+    this.location.replaceState(`/standings/${id}`);
     this.selectedDriver = tmpDriver || null;
   }
 
