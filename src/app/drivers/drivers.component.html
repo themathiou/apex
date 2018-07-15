@@ -3,12 +3,14 @@
 </section>
 <section class="list">
   <div>
-    <input type="text" placeholder="Start typing...">
+    <input type="text" [(ngModel)]="searchText" placeholder="Start typing...">
   </div>
   <div>Driver Championship Standings 2013</div>
   <app-driverlist
     [standings]="driverStandings"
+    [searchText]="searchText"
     (onListSelectDriver)="onSelectDriver($event)"
+    (onListSelectSort)="onSelectSort($event)"
   ></app-driverlist>
   <div>Some footer</div>
 </section>

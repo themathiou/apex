@@ -9,11 +9,11 @@
   </thead>
   <tbody>
     <tr 
-      *ngFor='let driver of driverStandings'
+      *ngFor="let driver of driverStandings | filterName : searchText"
       (click)="onSelectDriver(driver.Driver.driverId)"
     >
       <td>{{driver.position}}</td>
-      <td>{{driver.Driver.driverId}}</td>
+      <td>{{driver.Driver.givenName}} {{driver.Driver.familyName}}</td>
       <td>{{driver.Constructors[0].name}}</td>
       <td>{{driver.wins}}</td>
     </tr>
