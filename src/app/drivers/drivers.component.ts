@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { StandingsList } from '../shared/models/standings-list';
 import { Driver } from './shared/models/driver';
 import { DriverStanding } from '../shared/models/driver-standings';
@@ -13,16 +15,19 @@ import { DriverService } from './shared/services/driver.service';
 export class DriversComponent implements OnInit {
 
   constructor(
-    private driverService: DriverService
+    private driverService: DriverService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.preselectedDriverId = this.route.snapshot.paramMap.get('id');
     this.getStandings();
   }
 
   /**
    * Initializations
    */
+  preselectedDriverId: string = '';
   driverStandings: DriverStanding[] = [];
   selectedDriver: Driver;
   selectedSorting: string = 'POSITION';
@@ -34,13 +39,18 @@ export class DriversComponent implements OnInit {
     this.driverService.fetchMRData()
       .subscribe(res => {
         this.setStandingLists(res.MRData.StandingsTable.StandingsLists);
+        this.preselectedDriverId && this.selectDriver(this.preselectedDriverId);
       })
   }
 
-  onSelectDriver(id: string): void {
+  selectDriver(id: string): void {
     let tmpDriver = this.driverStandings.filter(o => 
       o.Driver.driverId === id)[0].Driver;
     this.selectedDriver = tmpDriver || null;
+  }
+
+  onSelectDriver(id: string): void {
+    this.selectDriver(id);
   }
 
   /** 
