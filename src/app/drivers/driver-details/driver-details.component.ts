@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Driver } from '../shared/driver';
+import { Driver } from '../shared/models/driver';
 
 @Component({
   selector: 'app-driver-details',

@@ -1,5 +1,5 @@
 import { Constructor } from './constructor';
-import { Driver } from '../../drivers/shared/driver';
+import { Driver } from '../../drivers/shared/models/driver';
 export class DriverStanding {
   position: string;
   positionText: string;

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { MRData } from '../../shared/models/mrdata';
-import { Driver } from './driver';
+import { MRData } from '../../../shared/models/mrdata';
 
 
 @Injectable({
