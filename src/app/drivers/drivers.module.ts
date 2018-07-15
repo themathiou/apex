@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { DriverService } from './shared/driver.service';
+import { DriverService } from './shared/services/driver.service';
 
 import { DriversComponent } from './drivers.component';
 import { DriverlistComponent } from './driverlist/driverlist.component';
 import { DriverDetailsComponent } from './driver-details/driver-details.component';
-import { FilterNamePipe } from '../shared/pipes/filterName.pipe';
+import { FilterNamePipe } from './shared/pipes/filterName.pipe';
 
 @NgModule({
   declarations: [

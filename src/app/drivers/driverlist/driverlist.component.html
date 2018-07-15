@@ -1,10 +1,10 @@
 <table *ngIf="driverStandings.length">
   <thead>
     <tr>
-      <th>Position</th>
-      <th>Driver</th>
-      <th>Constructor</th>
-      <th>Wins</th>
+      <th (click)="onSelectSort('POSITION')">Position</th>
+      <th (click)="onSelectSort('DRIVER')">Driver</th>
+      <th (click)="onSelectSort('CONSTRUCTOR')">Constructor</th>
+      <th (click)="onSelectSort('WINS')">Wins</th>
     </tr>
   </thead>
   <tbody>
@@ -13,7 +13,7 @@
       (click)="onSelectDriver(driver.Driver.driverId)"
     >
       <td>{{driver.position}}</td>
-      <td>{{driver.Driver.givenName}} {{driver.Driver.familyName}}</td>
+      <td>{{driver.Driver.familyName}}, {{driver.Driver.givenName}} </td>
       <td>{{driver.Constructors[0].name}}</td>
       <td>{{driver.wins}}</td>
     </tr>

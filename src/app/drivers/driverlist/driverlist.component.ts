@@ -12,7 +12,7 @@ export class DriverlistComponent implements OnInit {
   @Input('standings') driverStandings: DriverStanding[];
   @Input() searchText: string;
   @Output() onListSelectDriver: EventEmitter<string> = new EventEmitter<string>();;
-
+  @Output() onListSelectSort: EventEmitter<string> = new EventEmitter<string>();;
 
   constructor() { }
 
@@ -23,4 +23,12 @@ export class DriverlistComponent implements OnInit {
     this.onListSelectDriver.emit(id);
   }
 
+  /** 
+   * Exposed to call sorting function from parent
+   * type: string of 'POSITION' | 'DRIVER' | 'CONSTRUCTOR' | 'WINS'
+   * TODO: enumeration for types?
+   * */
+  onSelectSort(type: string): void {
+    this.onListSelectSort.emit(type);
+  }
 }
