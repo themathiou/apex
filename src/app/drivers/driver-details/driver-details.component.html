@@ -1,15 +1,15 @@
-<div *ngIf="driverStanding">
-  <div class="test">
-    <img src="#" />
-    <h3>{{driverStanding.Driver.givenName}} {{driverStanding.Driver.familyName}}</h3>
+<div *ngIf="driverStanding" class="details-wrapper">
+  <h3>{{driverStanding.Driver.givenName}} {{driverStanding.Driver.familyName}}</h3>
+  <div class="profile-image-wrapper">
+    <img src={{driverProfilePicUrl}} alt="Profile"/>
   </div>
   <div>
-    <p>Birth: {{driverStanding.Driver.dateOfBirth}}</p>
-    <p>Biography: {{driverStanding.Driver.url}}</p>
-    <p>Nationality: {{driverStanding.Driver.nationality}}</p>
+    <p><span class="label">Birth:</span> {{driverStanding.Driver.dateOfBirth}}</p>
+    <p><span class="label">Nationality:</span> {{driverStanding.Driver.nationality}}</p>
+    <p><a href="{{driverStanding.Driver.url}}" target="_blank">Bio Link</a></p>
     <hr>
-    <p>Team: {{driverStanding.Constructors[0].name}}</p>
-    <p>Nationality: {{driverStanding.Constructors[0].nationality}}</p>
-    <p>Link: {{driverStanding.Constructors[0].url}}</p>
+    <p><span class="label">Team name:</span> {{driverStanding.Constructors[0].name}}</p>
+    <p><span class="label">Team nationality:</span> {{driverStanding.Constructors[0].nationality}}</p>
+    <p><a href="{{driverStanding.Constructors[0].url}}" target="_blank">Wiki Link</a></p>
   </div>
 </div>

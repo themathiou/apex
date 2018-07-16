@@ -8,6 +8,7 @@ import { DriverStanding } from '../../shared/models/driver-standings';
 })
 export class DriverDetailsComponent implements OnInit {
   @Input() driverStanding: DriverStanding;
+  @Input() driverProfilePicUrl: string;
 
   constructor() { }
 

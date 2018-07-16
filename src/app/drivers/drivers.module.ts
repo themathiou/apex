@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { DriverService } from './shared/services/driver.service';
@@ -20,6 +21,7 @@ import { FilterNamePipe } from './shared/pipes/filterName.pipe';
   imports: [
     CommonModule,
     HttpClientModule,
+    JsonpModule,
     FormsModule
   ],
   exports: [

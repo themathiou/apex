@@ -26,7 +26,6 @@ export class DriverlistComponent implements OnInit {
   /** 
    * Exposed to call sorting function from parent
    * type: string of 'POSITION' | 'DRIVER' | 'CONSTRUCTOR' | 'WINS'
-   * TODO: enumeration for types?
    * */
   onSelectSort(type: string): void {
     this.onListSelectSort.emit(type);

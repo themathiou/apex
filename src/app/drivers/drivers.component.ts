@@ -19,18 +19,20 @@ export class DriversComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location
   ) { }
-
+  
   ngOnInit() {
     this.preselectedDriverId = this.route.snapshot.paramMap.get('id');
     this.getStandings();
   }
-
+  
   /**
    * Initializations
    */
+  private DEFAULT_PROFILE_PIC = '../../assets/images/profile.jpg';
   preselectedDriverId: string = '';
   driverStandings: DriverStanding[] = [];
   selectedDriver: DriverStanding;
+  driverProfilePicUrl: string = this.DEFAULT_PROFILE_PIC;
   selectedSorting: string = 'POSITION';
   /** Defines if the selected sort will be Ascending(TRUE) or Descengin(False) */
   isSortDirAsc: Boolean = true;
@@ -45,10 +47,19 @@ export class DriversComponent implements OnInit {
   }
 
   selectDriver(id: string): void {
+    this.driverProfilePicUrl = this.DEFAULT_PROFILE_PIC;
     let tmpDriver = this.driverStandings.filter(o => 
       o.Driver.driverId === id)[0];
     this.location.replaceState(`/standings/${id}`);
     this.selectedDriver = tmpDriver || null;
+
+    // Super ugly and myopic code. :) Remove before flight!
+    // Fetches info from wikipedia and steals the url for driver's image :P
+    this.driverService.fetchDriverWikiInfo(tmpDriver.Driver.url.split('/').pop())
+    .subscribe(res => {
+      // Our souls will be burned in hell...
+      this.driverProfilePicUrl = `http:${this.extractProfileImageFromWiki(res._body.parse.text['*'].split('src="')[1].split('\"')[0])}`;
+    });
   }
 
   onSelectDriver(id: string): void {
@@ -58,7 +69,6 @@ export class DriversComponent implements OnInit {
   /** 
    * Sorts table data based on type parameter
    * type: string of 'POSITION' | 'DRIVER' | 'CONSTRUCTOR' | 'WINS'
-   * TODO: enumeration for types?
    * */
   onSelectSort(type: string): void {
     this.isSortDirAsc = this.selectedSorting === type ? !this.isSortDirAsc : true;
@@ -86,6 +96,9 @@ export class DriversComponent implements OnInit {
     }
   }
 
+  extractProfileImageFromWiki(data: string): string {
+    return data;
+  }
   setStandingLists(lists: StandingsList[]): void {
     this.driverStandings = lists[0].DriverStandings;
   };
