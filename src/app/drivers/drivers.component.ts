@@ -58,7 +58,7 @@ export class DriversComponent implements OnInit {
     this.driverService.fetchDriverWikiInfo(tmpDriver.Driver.url.split('/').pop())
     .subscribe(res => {
       // Our souls will be burned in hell...
-      this.driverProfilePicUrl = `http:${this.extractProfileImageFromWiki(res._body.parse.text['*'].split('src="')[1].split('\"')[0])}`;
+      this.driverProfilePicUrl = `http:${this.extractProfileImageFromWiki((<any>res)._body.parse.text['*'].split('src="')[1].split('\"')[0])}`;
     });
   }
 
