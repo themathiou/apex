@@ -16,9 +16,11 @@ F1 term describing the middle point of the inside line around a corner at which 
 - The url is changing according the driver's selection. The url is deep-linked when application is initiated. So copying and sending the url, let you navigate directly to a drivers info.
 
 
-# Angular
+## Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install
+- Clone the project
+- Run `npm install`
+- Run `ng serve` for a dev server
+- Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
