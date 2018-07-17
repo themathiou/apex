@@ -1,0 +1,12 @@
+@mixin box-shadow($definition) {
+  -webkit-box-shadow: $definition;
+  -moz-box-shadow: $definition;
+  box-shadow: $definition;
+}
+
+@mixin grid($colStart, $colEnd, $rowStart, $rowEnd) {
+  grid-column-start: $colStart;
+  grid-column-end: $colEnd;
+  grid-row-start: $rowStart;
+  grid-row-end: $rowEnd;
+}
